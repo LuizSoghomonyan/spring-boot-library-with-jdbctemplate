@@ -1,14 +1,11 @@
 package com.example.springbootlibrary.model;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
 public class Person {
-    @NotBlank
+//    @NotBlank
     private int id;
 
     @NotBlank
@@ -30,9 +27,11 @@ public class Person {
     @Min(value = 0, message = "Age should be greater then 0")
     private int age;
 
-    @Size(min = 1900,
-            max = 2023,
-            message = "Year should be between 1900 and 2023")
+//    @Size(min = 1900,
+//            max = 2023,
+//            message = "Year should be between 1900 and 2023")
+    @Min(value = 1900, message = "Year should be between 1900 and 2023")
+    @Max(value = 2023, message = "Year should be between 1900 and 2023")
     private int birthYear;
 
 

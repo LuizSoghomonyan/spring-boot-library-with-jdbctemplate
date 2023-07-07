@@ -29,4 +29,11 @@ public class PersonDAO {
                                             new Object[]{id},
                                             new PersonMapper()).stream().findAny().orElse(null);
     }
+
+    public void createPerson(Person person) {
+        this.jdbcTemplate.update(
+                "insert into person (firstname, lastname, email, age, birthYear) values (?,?,?,?,?)",
+                    person.getFirstname(),person.getLastname(), person.getEmail(), person.getAge(), person.getBirthYear()
+                );
+    }
 }
