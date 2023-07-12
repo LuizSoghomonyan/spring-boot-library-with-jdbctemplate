@@ -3,7 +3,7 @@ create table if not exists Person(
     firstname varchar(250),
     lastname varchar(250),
     email varchar(250) UNIQUE,
-    age int check ( age > 0 ),
+    age int check ( age >= 0 ),
     birthYear int
 );
 

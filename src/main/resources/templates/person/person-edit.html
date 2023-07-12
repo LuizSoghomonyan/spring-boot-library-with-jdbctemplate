@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Person</title>
+</head>
+<body>
+<form th:method="PUT" th:action="@{/people/{id}/edit(id=${person.getId()})}" th:object="${person}">
+  <label>Firstname</label>
+  <input th:field="*{firstname}" type="text">
+  <div style="color: red;" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></div>
+  <br>
+  <label>Lastname</label>
+  <input th:field="*{lastname}" type="text">
+  <div style="color: red;" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></div>
+  <br>
+  <label>Email</label>
+  <input th:field="*{email}" type="email">
+  <div style="color: red;" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+  <br>
+  <label>Age</label>
+  <input th:field="*{age}" type="number">
+  <div style="color: red;" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+  <br>
+  <label>Year</label>
+  <input th:field="*{birthYear}" type="number">
+  <div style="color: red;" th:if="${#fields.hasErrors('birthYear')}" th:errors="*{birthYear}"></div>
+
+  <input type="submit" value="Update">
+</form>
+
+</body>
+</html>

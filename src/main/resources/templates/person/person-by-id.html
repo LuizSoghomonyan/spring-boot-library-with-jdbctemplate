@@ -16,6 +16,9 @@
   <p th:text="${person.getAge()}"></p>
   <label>Year</label>
   <p th:text="${person.getBirthYear()}"></p>
+
+  <a th:href="@{{id}/edit(id=${person.getId()})}">Edit!</a>
+<!--  <input type="button" value="Edit">-->
 </div>
 
 </body>

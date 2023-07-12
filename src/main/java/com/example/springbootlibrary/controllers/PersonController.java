@@ -38,6 +38,12 @@ public class PersonController {
         return "person/person-create-new";
     }
 
+
+    @GetMapping("/{id}/edit")
+    public String getPersonEditById(@PathVariable("id") int id, Model model){
+        model.addAttribute("person", this.personDAO.getPersonById(id));
+        return "person/person-edit";
+    }
     @PostMapping("")
     public String createPerson( @ModelAttribute("person") @Valid Person person,
                                 BindingResult bindingResult){
@@ -46,5 +52,19 @@ public class PersonController {
 
         this.personDAO.createPerson(person);
         return "redirect:/people";
+    }
+
+    @PutMapping("/{id}/edit")
+    public String updatePersonById(@ModelAttribute("person") @Valid Person person,
+                                   BindingResult bindingResult,
+                                   Model model){
+        if(bindingResult.hasErrors()){
+            log.warn(String.valueOf(bindingResult));
+            return "person/person-edit";
+        }
+
+        this.personDAO.updatePersonById(person);
+        model.addAttribute("person", person);
+        return "redirect:/people/" + person.getId();
     }
 }

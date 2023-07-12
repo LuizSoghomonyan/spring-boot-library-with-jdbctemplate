@@ -36,4 +36,11 @@ public class PersonDAO {
                     person.getFirstname(),person.getLastname(), person.getEmail(), person.getAge(), person.getBirthYear()
                 );
     }
+
+    public void updatePersonById(Person person) {
+        this.jdbcTemplate.update(
+                "UPDATE person SET firstname = ?, lastname = ?, email = ?, age = ?, birthyear = ? WHERE id = ?",
+                person.getFirstname(),person.getLastname(),person.getEmail(), person.getAge(),person.getBirthYear(), person.getId()
+        );
+    }
 }
