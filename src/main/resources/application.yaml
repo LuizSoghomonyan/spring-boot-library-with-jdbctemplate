@@ -6,7 +6,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     generate-unique-name: false
     name: spring-boot-library
-    url: jdbc:postgresql://localhost:5433/spring-boot-library
+    url: jdbc:postgresql://localhost:5432/spring-boot-library
     username: postgres
     password: postgres
   mvc:

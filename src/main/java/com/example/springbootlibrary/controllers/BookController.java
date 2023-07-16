@@ -41,6 +41,9 @@ public class BookController {
     public String updateBookById(@ModelAttribute("book") @Valid Book book,
                                  BindingResult bindingResult,
                                  Model model){
-        return "book/book-edit";
+        if(bindingResult.hasErrors())
+            return "book/book-edit";
+        this.bookDAO.updateBookById(book);
+        return "redirect:/books";
     }
 }

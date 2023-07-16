@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 @Data
 public class Book {
-    @NotBlank
     private int id;
 
     @NotEmpty
